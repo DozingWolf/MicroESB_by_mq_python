@@ -1,17 +1,10 @@
 __author__ = 'DozingWolf'
-import json
 from datetime import datetime
 from sqlalchemy import *
 from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy import Table,Column,MetaData
 from sqlalchemy.orm import sessionmaker,query
 from sqlalchemy.dialects.oracle import DATE,VARCHAR2,NUMBER
-
-# db_ip = '10.62.24.24'
-# db_port = 1521
-# db_sid = 'orcl12c'
-# db_user = 'T_OUT_TP_D'
-# db_password = 'T_OUT_TP_D'
 
 def createEngine(user, password, ip, port, sid):
     db_engine = create_engine('oracle://%s:%s@%s:%d/%s'%(user, password, ip, port, sid ), echo=False)
