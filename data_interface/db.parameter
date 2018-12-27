@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="utf-8"?>
+	<Parameter_Producer Alarm="DO NOT USE ANY CHINESE CHARACTERS AS DB_NAME OR MQ_NAME !!!" Author="Edmond Chen" Description="This xml document was a parameter of project Interface_MQ_Python, dont edit any paremeter node's name and node's location ,thanks a lot. ">
+		<DB_PARA>
+			<DB_PORT>XXX.XXX.XXX.XXX</DB_PORT>
+			<DB_PORT>1521</DB_PORT>
+			<DB_USER>XXXXXXXX</DB_USER>
+			<DB_PASWD>000000000</DB_PASWD>
+			<DB_SRVNAME>XXXXXXXX</DB_SRVNAME>
+		</DB_PARA>
+		<MQ_PARA>
+			<MQ_PORT>XXX.XXX.XXX.XXX</MQ_PORT>
+			<MQ_PORT>15672</MQ_PORT>
+			<MQ_USER>XXXXXXXX</MQ_USER>
+			<MQ_PASWD>000000000</MQ_PASWD>
+			<MQ_EXCHANGE>XXXXXXXX</MQ_EXCHANGE>
+			<MQ_HB>60</MQ_HB>
+			<MQ_ROUTER_KEY>interface.mq</MQ_ROUTER_KEY>
+		</MQ_PARA>
+	</Parameter_Producer>
