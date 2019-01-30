@@ -1,7 +1,7 @@
 __author__ = 'DozingWolf'
 from basic_producer_mq_option import *
 from basic_producer_database_option import *
-from basic_tool import *
+# from basic_tool import *
 import json
 import io
 import sys
@@ -14,6 +14,7 @@ mq_user = 'admin'
 mq_password = 'admin@123'
 mq_exchange = 'TEST_EXCHANGE_TOPIC'
 mq_routing_ket = 'interface.001'
+mq_queue = 'interface'
 # DB parameter
 db_ip = '10.62.24.24'
 db_port = 1521
@@ -24,6 +25,7 @@ db_password = 'MQ_OUT'
 rtflag,connect,parameter = createMQengine(mq_ip, mq_user, mq_password)
 channel = connect.channel()
 channel.exchange_declare(exchange=mq_exchange,exchange_type='topic')
+channel.queue_declare(queue=mq_queue,durable=True)
 # 创建DB链接
 engine = createEngine(db_user, db_password, db_ip, db_port, db_sid)
 CreateorReplaceTable(engine)
@@ -35,7 +37,7 @@ for row in sess.query(T_OUT_TP_D).filter_by(sendfg = '00'):
     print(cPickle.dumps(row))
     msgbody = cPickle.dumps(row)
     channel.basic_publish(exchange=mq_exchange,routing_key=mq_routing_ket,body=msgbody,properties=parameter)
-    row.sendfg = '20'
+    # row.sendfg = '20'
     print('success!')
 sess.commit()
 connect.close()
